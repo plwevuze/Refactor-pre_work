@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refactor</title>
+    <link rel="icon" type="image/x-icon" href="pajo01.png">
+   <!--<link rel="icon" type="image/x-icon" href="/images/favicon.ico">-->
+    <style>
+*{list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* background-color: rgb(14, 17, 20); */
+}
+.logo1 {
+   
+    padding-left: 1px;
+    padding-top: 10px;
+    width: 200px;
+    height :30px;
+    cursor: pointer;
+    font-display: blueviolet;
+}
+.container{
+    width: 100%;
+    height :100vh;
+    background-image: url(5.jpg);
+    background-size: contain;
+    background-blend-mode: darken;
+    background-position:center;
+    background-repeat: no no-repeat;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+.header{
+    height: 15%;
+    display: flex;
+    align-items:center;
+    overflow: visible;
+    position: relative;
+}
+.navbar {
+    text-align: center;
+    flex: 1;
+}
+.navbar a{
+padding: 6px 20px;
+text-decoration: none;
+color: white;
+margin-left: 20px;
+font-size: 10px;
+font-weight: bold;
+}
+.btn {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 5px;
+
+    border: 2px solid #00acee;
+    border-radius: 5px;
+    color: #00acee;
+
+    font-size: small;
+    cursor: pointer;
+}
+.content {
+    /* height: auto; */
+    text-align: center;
+    position: center;
+    color: aliceblue;
+    align-items: center;
+    
+    
+}
+.btn-signup {
+    font-size: larger;
+    padding: 10px;
+    background-color: aliceblue;
+    border: 2px solid #6a1b9a;
+    border-radius: 5px;
+    color: #6a1b9a;
+
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.btn-signup:hover {
+    background-color: #6a1b9a;
+    color: aliceblue;
+}
+
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.btn-fb {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 10px;
+
+    border: 2px solid #3b5998;
+    border-radius: 5px;
+    color: #3b5998;
+
+    font-size: medium;
+    cursor: pointer;
+}
+
+.btn-fb:hover{
+    background-color: #3b5998;
+    color: aliceblue;
+}
+
+.btn-twt {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 10px;
+
+    border: 2px solid #00acee;
+    border-radius: 5px;
+    color: #00acee;
+
+    font-size: medium;
+    cursor: pointer;
+}
+
+.btn-twt:hover {
+    background-color: #00acee;
+    color: aliceblue;
+}
+img {
+    width: 28px;
+    height: 28px;
+}
+.h2 {
+    font-display: white;
+}
+/* ################## Lessons ##################### */
+
+.lessons-wrapper {
+    height: 50vh;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lessons-wrapper__title {
+    color: albiceblue;
+
+}
+
+.lessons-wrapper__lessons {
+    /* border: 2px solid beige; */
+    width: 80%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lesson-shape {
+    clip-path: polygon( 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    width: 100px;
+    height: 110px;
+    /* background-color: rgba(0, 255, 255, 0.349); */
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    z-index: 0;
+    margin-bottom: 20px;
+
+}
+
+.h3{
+    position: absolute;
+    left: 20%;
+    top: 40px;
+    z-index: 1;
+}
+
+.lessons-wrapper__lessons_lesson {
+    /* border: 2px solid red; */
+    height: 100%;
+    width: 20%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lesson-description {
+    font-size: small;
+    color: rgb(4, 19, 32);
+    text-align: center;
+}
+
+.lesson-php {
+    background-color:  #8e24aa ;
+}
+
+.lesson-jquery {
+    background-color:  #ffb300;
+}
+
+.lesson-html {
+    background-color:  #81c784 ;
+}
+
+.lesson-ruby {
+    background-color:  #f44336 ;
+}
+
+
+
+.message-wrapper {
+    height: 0vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     
+    color: rgb(2, 22, 39);
+    
+}
+
+.message-qn {
+    font-size: medium;
+    line-height: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.message-coment {
+    font-size: small;
+    line-height: 10px;
+    margin-bottom: 15px;
+}
+
+.message-ca {
+    padding: 10px 20px;
+    background-color:  aliceblue;
+    border-radius: 5px;
+    color: #6a1b9a;
+    border: 2px solid #6a1b9a;
+    cursor: pointer;
+
+    font-size: medium;
+}
+
+.message-ca:hover {
+    background-color:  #6a1b9a;
+    color: aliceblue;
+}
+
+footer {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 100%;
+    height: 25vh;
+    background-color: #2b3a3a;
+
+    display: flex;
+    flex-direction: row;
+    padding: 40px 50px;
+    /* justify-content: space-between; */
+    align-items: center;
+
+    position: sticky;
+}
+
+.footer-left {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 40px;
+
+}
+
+.footer-logo {
+
+}
+
+.footer-right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 33%;
+}
+
+.footer-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.801);
+    margin-bottom: 15px;
+}
+
+.footer-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+}
+
+.footer-item {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.61);
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                
+                <img src="logo1.png" class = "logo1">
+                
+                <div class="navbar">
+                   <a href="./pre_work.html">Home</a>
+                   <a class="logo1" href="./dashboard.html">Dasboard</a>
+                   <a href="./courses.html">Courses</a>
+                   <a href="./slides.html ">Slide library</a>
+                   
+                </div>
+                <button class ="btn">
+                    <a href="./login.html ">login</a>
+                </button> 
+
+            </div>
+            <div class=" content"><br><br><br>
+                <h2 class="sub_title">LEARN TO <span class="special">CODE</span> <br> LEARN TO BE <span class="special">CREATIVE</span></h2><br>
+                        <p class="text">Program is a web service where you can learn programming. <br> We offer you a fully equipped coding enviroment to get you started</p><br>
+                        <button class="btn-signup">Sign up with Email</button><br>
+                        <p>Or</p>
+                <div class="btn-group">
+                    <button class="btn-fb"><img src="./facebook1.png" alt="Facebook">Sign up with Facebook</button>
+                    <button class="btn-twt"><img src="./twitter.png" alt="Twitter">Sign up with Twitter</button>
+                </div><br><br><br><br>
+                <!-- ############### Lessons ################### -->
+    <div class="lessons-wrapper"><br>
+        <h2 class="lessons-wrapper__title">Learn where to get started</h2>
+        <div class="lessons-wrapper__lessons">
+            <div class="lessons-wrapper__lessons_lesson">
+                <div class="lesson-shape lesson-php">
+                    <h3 class="h3">PHP</h3>
+                </div>
+                <p class="lesson-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatibus vel dolor, provident.
+                </p>
+            </div>
+
+            <div class="lessons-wrapper__lessons_lesson">
+                <div class="lesson-shape lesson-jquery">
+                    <h3 class="h3"> JQuery</h3>
+                </div>
+                <p class="lesson-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatibus vel dolor, provident.
+                </p>
+            </div>
+
+            <div class="lessons-wrapper__lessons_lesson">
+                <div class="lesson-shape lesson-html">
+                    <h3 class="h3">HTML & CSS</h3>
+                </div>
+                <p class="lesson-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatibus vel dolor, provident.
+                </p>
+            </div>
+
+            <div class="lessons-wrapper__lessons_lesson">
+                <div class="lesson-shape lesson-ruby">
+                    <h3 class="h3">Ruby</h3>
+                </div>
+                <p class="lesson-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit voluptatibus vel dolor, provident.
+                </p>
+            </div>
+
+        </div>
+
+    </div><br><br>
+                   <!-- ################# Message ##################### -->
+     <div class="message-wrapper"><br>
+        <h3 class="message-qn">Ready to become an awesome programmer?</h3>
+        <h4 class="message-coment">Let's learn to code, Learn to be creative</h4>
+        <button class="message-ca">Start Learning</button>
+    </div>
+            </div>
+          
+        </div>
+        
+        </header>
+
+    </header>
+    <main>
+
+
+    </main>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div class="footer-left">
+            <h2 class="footer-logo">Refactor</h2>
+            <small>&copy; 2014 Refactor.Inc</small>
+        </div>
+        <div class="footer-right">
+            <div class="footer-content">
+                <h2 class="footer-title">Services</h2>
+                <ul class="footer-list">
+                    <li class="footer-item">Courses</li>
+                    <li class="footer-item">Plans</li>
+                    <li class="footer-item">Dashboard</li>
+                    <li class="footer-item">Learning Roadmap</li>
+                    <li class="footer-item">Success Stories</li>
+                    <li class="footer-item">Blog</li>
+                    <li class="footer-item">Help</li>
+                </ul>
+            </div>
+    
+            <div class="footer-content">
+                <h2 class="footer-title">Support</h2>
+                <ul class="footer-list">
+                    <li class="footer-item">About Refactory</li>
+                    <li class="footer-item">Terms</li>
+                    <li class="footer-item">Privacy Policy</li>
+                </ul>
+            </div>
+    
+            <div class="footer-content">
+                <h2 class="footer-title">Connect with us</h2>
+                <ul class="footer-list">
+                    <li class="footer-item">Twitter</li>
+                    <li class="footer-item">Facebook</li>
+                </ul>
+            </div>
+    
+        </div>
+    </footer>
+</body>
+</html>
